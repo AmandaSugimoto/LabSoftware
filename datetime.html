@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Clock with date</title>
+    </head>
+    <body onload="initClock()">
+        <div class="datetime">
+            <div class="date">
+                <span id="dayname">Day,</span>
+                <span id="month">Month</span>
+                <span id="day">00,</span>
+                <span id="year">Year</span>
+            </div>
+            <div class="time">
+                <span id="hour">00:</span>
+                <span id="minutes">00:</span>
+                <span id="seconds">00</span>
+                <span id="period">AM</span>
+            </div>
+        </div>
+        <script type="text/javascript">
+            function updateClock()
+            {
+                var now = new Date();
+                var dname = now.getDay(), 
+                    mo = now.getMonth(),
+                    dnum = now.getDate(), 
+                    yr = now.getFullYear(), 
+                    hou = now.getHours(), 
+                    min = now.getMinutes(), 
+                    sec = now.getSeconds(),
+                    pe = "AM";
+
+                    if(hou == 0)
+                    {
+                        hou = 12;
+                    }
+                    if(hou > 12) 
+                    {
+                        hou = hou - 12;
+                        pe = "PM";
+                    }
+                    Number.prototype.pad = function(digits)
+                    {
+                        for(var n = this.toString(); n.length< digits; n = 0 + n);
+                        return n;
+                    }
+                    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                    var week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fry", "Sat"];
+                    var ids = ["dayname", "month", "day", "year", "hour", "minutes", "seconds", "period"];
+                    var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+                    for(var i = 0; i < ids.length; i++)
+                    document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+            }
+            function initClock(){
+                updateClock();
+                window.setInterval("updateClock()", 1);
+            }
+        </script>
+    </body>
+</html>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #ffff;
+    }
+    .datetime{
+        color: #404040;
+        font-family: 'Segoe UI', sans-serif;
+        width: 340px;
+        padding: 15px 10px;
+        border: 3px solid #fff;
+        border-radius: 5px;
+    }
+    .date{
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+        letter-spacing: 3px;
+    }
+    .time {
+        font-size: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .time span:not(:last-child){
+        position: relative;
+        margin: 0 6px;
+        font-weight: 600;
+        text-align: center;
+        letter-spacing: 3px;
+    }
+    .time span:last-child{
+        font-size: 30px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-top: 10px;
+        padding: 0 5px;
+        border-radius: 3px;
+    }
+
+</style>
