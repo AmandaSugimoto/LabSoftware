@@ -3,10 +3,13 @@ import React from 'react';
 class Header extends React.Component {
 	constructor(props){
         super(props);
-        this.state = {corfavorita: "vermelho"};
+        this.state = {corfavorita: this.props.favcol};
         }
-	static getDerivedStateFromProps(props, state){
-		return {corfavorita: props.favcol};
+
+	componentDidMount(){
+		setTimeout(()=>{
+			this.setState({corfavorita: "Vermelho"})
+		},2000);
 	}
 	render() {
 	  return (

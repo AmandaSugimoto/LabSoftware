@@ -1,9 +1,9 @@
 import React from 'react';
 
-class Container extends React.Component {
+class FunContainer extends React.Component {
 	constructor(props){
         super(props);
-        this.state = {show: true};
+        this.state = {show: this.props.show.true};
     }
     delHeader = () =>{
         this.setState({show: false});
@@ -31,4 +31,4 @@ class Child extends React.Component {
         );
     }
 }
-export default Container;
+export default FunContainer;

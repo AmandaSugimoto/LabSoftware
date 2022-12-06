@@ -5,15 +5,16 @@ import Tabuada from './Tabuada';
 import Cores from './Cores';
 import Bo from './Bo';
 import Header from './Header';
+import FunContainer from './FunContainer';
 let n = prompt("Digite um número", "5");
 
 function App() {
   return (
     <div>
-      <
+      <FunContainer show = "Titulo do container willUnmount"/>
       <Header favcol="Amarelo" />
       <Bo m = "Ola Mundo"/>
-      <Cores nome_cor = "Rosa"
+      <Cores nome_cor = 
             valor_cor = "#FF0084"
             />
       <Titulo titulo = "Fatec"
