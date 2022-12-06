@@ -3,7 +3,7 @@ import React from 'react';
 class FunContainer extends React.Component {
 	constructor(props){
         super(props);
-        this.state = {show: this.props.show.true};
+        this.state = {show: this.props.show};
     }
     delHeader = () =>{
         this.setState({show: false});
@@ -23,7 +23,7 @@ class FunContainer extends React.Component {
 }
 class Child extends React.Component {
     componentWillUnmount() {
-        alert("O componente Header está orestes a ser desmontado.");
+        alert("O componente Header está prestes a ser desmontado.");
     }
     render() {
         return (
