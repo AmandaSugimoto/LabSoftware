@@ -12,7 +12,10 @@ class Bo extends React.Component {
 	}
 	render() {
 	  return (
-        <button onClick={this.exibir}>Clique</button>
+		<div>
+			<h3>Abra o console e clique no botão</h3>
+        	<button onClick={this.exibir}>Clique</button>
+		</div>
 	  );
 	}
 }
